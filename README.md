@@ -1,8 +1,6 @@
 # Production url
 
 https://javier-lopez-portfolio-hello-world.netlify.app/
-https://javier-lopez-portfolio-hello-world.netlify.app/
-https://javier-lopez-portfolio-hello-world.netlify.app/
 
 # Getting Started with Create React App
 
