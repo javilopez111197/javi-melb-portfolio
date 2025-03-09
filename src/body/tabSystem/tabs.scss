@@ -1,0 +1,123 @@
+.tabs {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  height: 100vh;
+}
+.tabs-navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  button {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(219, 255, 252);
+    cursor: pointer;
+    &:focus {
+      outline: none;
+      border-radius: 30px;
+      box-shadow: 0 0 0 2px rgba(219, 255, 252, 0.5),
+        0 0 15px rgba(219, 255, 252, 0.5);
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+      background: rgba(219, 255, 252, 0.1);
+      z-index: 2;
+    }
+    &:hover {
+      .arrowTabBackground {
+        display: block;
+        position: absolute;
+        filter: drop-shadow(-1px 0 0 rgb(219, 255, 252));
+        //drop-shadow(1px 0 0 rgb(219, 255, 252));
+        &:nth-child(1) {
+          visibility: visible;
+          animation: moveRight 1.5s linear infinite;
+        }
+        &:nth-child(2) {
+          animation: moveRight 1.5s linear 0.5s infinite,
+            showDelayed 0s linear 0.5s forwards;
+        }
+        &:nth-child(3) {
+          animation: moveRight 1.5s linear 1s infinite,
+            showDelayed 0s linear 1s forwards;
+        }
+      }
+    }
+  }
+
+  .sub-buttons {
+    flex-direction: column;
+    height: auto;
+    > button {
+      opacity: 0;
+    }
+    &.open {
+      > button {
+        @for $i from 1 through 2 {
+          &:nth-child(#{$i}) {
+            animation: reveal 0.3s ease-out forwards;
+            animation-delay: $i * 0.1s;
+          }
+        }
+      }
+    }
+  }
+}
+.arrowTabBackground {
+  display: none;
+  top: 0;
+  right: 0;
+  height: inherit;
+  visibility: hidden;
+}
+.filterIcon {
+  width: 36px;
+  height: 36px;
+  filter: invert(80%) sepia(50%) saturate(500%) hue-rotate(160deg)
+    brightness(105%) contrast(101%);
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-left: 12px;
+  border-radius: 50%;
+  background-color: rgba(219, 255, 252, 0.1);
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: rgba(219, 255, 252, 0.2);
+    box-shadow: 0 0 10px rgba(219, 255, 252, 0.5);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-40vh);
+  }
+  100% {
+    transform: translateX(-30px);
+  }
+}
+@keyframes showDelayed {
+  to {
+    visibility: visible;
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateY(-20px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px) scale(1);
+  }
+}

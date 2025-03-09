@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Header from "./header/header";
+import Body from "./body/body";
+import "./App.scss";
+import { redirecTabs } from "./body/tabSystem/tabs";
 
-function App() {
+const App = () => {
+  const [activeTab, setActiveTab] = useState<redirecTabs>("aboutMe");
+  const [isExpEdu, setIsExpEdu] = useState<boolean>(false);
+
+  const handleTabChange = (tab: redirecTabs) => {
+    setActiveTab(tab);
+  };
+  const handleIsExpEdu = () => {
+    setIsExpEdu(!isExpEdu);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header className="header" onTabChange={handleTabChange} />
+      <Body
+        activeTab={activeTab}
+        onTabChange={handleTabChange}
+        handleIsExpEdu={handleIsExpEdu}
+        isExpEdu={isExpEdu}
+      />
+    </>
   );
-}
-
+};
 export default App;

@@ -1,0 +1,155 @@
+.profesionalExp {
+  display: grid;
+  grid-template-columns: 82% 18%;
+  overflow-y: scroll;
+  max-height: calc(100vh - 20px); // Adjust this value as needed
+  margin-bottom: 20px;
+  margin-bottom: 20px;
+  // Custom scrollbar styles
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(79, 254, 204, 0.5);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 254, 204, 0.7);
+  }
+}
+.timeline {
+  position: relative;
+  // height: 90vh;
+  margin-left: 30px;
+  margin-bottom: 60px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow-y: auto;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    bottom: 0;
+    width: 2px;
+    background: var(--starlight);
+  }
+  .job {
+    position: relative;
+    padding-left: 16px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+
+    .circle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      left: 0;
+      top: 6px;
+      bottom: 0;
+      margin-left: -15px;
+      border: 2px solid white;
+      border-radius: 20px;
+      background: var(--starlight);
+      z-index: 111111;
+    }
+    .job_details {
+      width: inherit;
+      .job_title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: #4ffecc;
+        margin-bottom: 15px;
+        letter-spacing: 0.5px;
+      }
+      .job_description {
+        font-family: "Open Sans", "Segoe UI", "Roboto", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #d7edff; //#4A0E4E  //#001F3F //blue dark  //e0e0e0 white //d7edff
+        white-space: pre-wrap;
+        padding-left: 10px;
+        background-color: transparent;
+        border-left: 3px solid rgba(79, 254, 204, 0.3);
+        animation: fadeInJob 0.5s ease forwards;
+      }
+    }
+  }
+}
+.technologies {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-right: 10px;
+  justify-content: space-around;
+  // height: 90vh;
+  .tech-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    svg.react-svg path {
+      stroke: white;
+      stroke-width: 25px;
+      fill: none;
+    }
+    svg.ts-svg path,
+    svg.redux-svg path,
+    svg.css-svg path,
+    svg.sass-svg path,
+    svg.html-svg path,
+    svg.git-svg path {
+      stroke: white;
+      stroke-width: 40px;
+      fill: none;
+    }
+    .technologies-text {
+      font-size: 14px;
+      font-family: "Orbitron", sans-serif;
+      color: #00ffff;
+      margin: 0 1rem;
+      white-space: nowrap;
+      text-shadow: 0 0 5px #00ffff, 0 0 2px #00ffff;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    &.odd {
+      flex-direction: row-reverse;
+    }
+    /*  &.even {
+      flex-direction: row;
+    } */
+  }
+}
+
+.project-link {
+  background: none;
+  border: none;
+  color: #11ffa8de; /* Use the same color as other links */
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+}
+
+@keyframes fadeInJob {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

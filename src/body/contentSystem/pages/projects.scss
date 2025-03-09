@@ -1,0 +1,86 @@
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 60px;
+  height: 90%;
+  margin: 0 20px;
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(33.33% - 30px);
+    height: 55vh;
+    margin: 10px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #363660, #16213e);
+    border-radius: 15px;
+    box-shadow: 0px 8px 32px 0 rgba(31, 105, 135, 0.37);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    transition: transform 1s ease, box-shadow 1s ease;
+
+    &:hover {
+      transform: translateY(-20px) scale(1.05);
+      box-shadow: 0 20px 40px 20px rgba(31, 38, 135, 0.5);
+      overflow: visible;
+    }
+    .projImg {
+      width: 100%;
+      height: 40%;
+      border-radius: 10px;
+      object-fit: cover;
+      object-position: center;
+    }
+    .title {
+      height: 5%;
+      display: flex;
+      align-items: center;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #4ffecc;
+      margin: 5px 0;
+      letter-spacing: 0.5px;
+      @media (min-width: 1600px) {
+        margin-bottom: 18px;
+      }
+    }
+    .desc {
+      height: 35%;
+      font-weight: 400;
+      white-space: pre-wrap;
+      position: relative;
+      align-items: center;
+    }
+    .tech {
+      height: 15%;
+      font-weight: 700;
+    }
+    .desc,
+    .tech {
+      font-family: "Open Sans", "Segoe UI", "Roboto", sans-serif;
+      font-size: 13px;
+      @media (min-width: 1600px) {
+        font-size: 16px;
+      }
+      padding: 5px;
+      line-height: 1.4;
+      color: #f6e0f7;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .url {
+      height: 5%;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #00ffff;
+      font-family: "Open Sans", "Segoe UI", "Roboto", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+  }
+}

@@ -1,13 +1,71 @@
-body {
+:root {
+  --deep-space: #4280cc;
+  --blue-green-space: #377195;
+  --cosmic-blue: #386d68;
+  --tech-cyan: #126a6e;
+  --neon-purple: #4e3863;
+  --starlight: #95a0b0;
+}
+/*less bright:
+ --deep-space: #4280cc; 
+  --blue-green-space: #32787c; 
+  --cosmic-blue: #386d68; 
+  --tech-cyan: #126a6e; 
+  --neon-purple: #4e3863; 
+  --starlight: #95a0b0; 
+ 
+  more bright:
+   --deep-space: #53a0ff;
+  --blue-green-space: #3e959b;
+  --cosmic-blue: #468982;
+  --tech-cyan: #168489;
+  --neon-purple: #62467c;
+  --starlight: #bac8dc;
+  */
+body,
+html,
+#root {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--deep-space),
+    var(--blue-green-space),
+    var(--cosmic-blue),
+    var(--tech-cyan),
+    var(--neon-purple),
+    var(--starlight)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 13s ease infinite;
+  color: var(--neon-cyan);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
 }

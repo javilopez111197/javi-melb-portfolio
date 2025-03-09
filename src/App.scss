@@ -1,0 +1,17 @@
+.header {
+  display: inline-block;
+  height: 48px;
+  width: 100%;
+  // background: linear-gradient(to right, #0b0c10, #1f2833);
+  // box-shadow: 0 10px 10px rgba(102, 252, 241, 0.2);
+}
+
+//add this colos thru the app
+:root {
+  --deep-space-blue: #0b0c10;
+  --cyber-teal: #1f2833;
+  --neon-blue: #66fcf1;
+  --electric-purple: #7f00ff;
+  --plasma-pink: #ff00ff;
+  --cosmic-black: #0a0a0a;
+}
